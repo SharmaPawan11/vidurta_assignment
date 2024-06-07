@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { TreeStructure } from '../../interfaces/structure'
 import { FaFileAlt, FaFolder, FaChevronRight, FaChevronDown } from "react-icons/fa";
 import './FileTree.css'
@@ -17,16 +17,6 @@ function FileTree({ node, path }: { node: TreeStructure, path: string }) {
     })
   };
 
-  useEffect(() => {
-    return () => {
-      if (type === 'dir') {
-        
-      }
-    }
-  }, [])
-
-
-
   return ( 
     <>
       {node && <div className="info">
@@ -34,7 +24,7 @@ function FileTree({ node, path }: { node: TreeStructure, path: string }) {
         {type === 'file' ? <FaFileAlt /> : <FaFolder />}
         <li data-testid="node">
           <p>{ name }</p>
-        </li>
+        </li> 
       </div>}
       <ul>
         {context[path] && children?.map(child => (
